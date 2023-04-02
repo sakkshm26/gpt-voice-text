@@ -22,6 +22,10 @@ const openai = new OpenAIApi(
 
 const port = process.env.PORT || 4000;
 
+app.get('/', (req, res) => {
+  res.send("Unauthorized")
+})
+
 app.post("/getreply", auth, async (req, res) => {
   try {
     const response = await openai.createChatCompletion({
